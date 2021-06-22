@@ -1,0 +1,30 @@
+/* eslint-disable no-undef */
+import React from 'react';
+
+const Tabs = (props) => {
+    // eslint-disable-next-line no-unused-vars
+    const { allTabs, currentTabIndex, setCurrentTabIndex } = props;
+
+    const tabStyle = (index) => {
+        if (index === currentTabIndex) {
+            return "selectedTab";
+        } else {
+            return "nonSelectedTab";
+        }
+    }
+
+    const setSelectedTab = ( index ) => {
+        setCurrentTabIndex (index);
+    }
+
+    return (
+        <div style={{margin:"auto",width:"85%",textAlign:"left"}}>
+            allTabs.map((item, index) = (
+                <div className={`tab ${tabStyle(index)}`}onclick={(e) => setSelectedTab(index)}>
+                    { item.label }
+                </div>
+            ))
+        </div>
+    )
+}
+export default Tabs;
